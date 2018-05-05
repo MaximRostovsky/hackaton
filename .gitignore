@@ -103,3 +103,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+web_mystem_skipgram_500_2_2015.bin
+config.py
