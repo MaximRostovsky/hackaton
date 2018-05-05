@@ -15,12 +15,15 @@ function sendToServ() {
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://127.0.0.1:5000/json", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            var json;
+            var json = xhr.responseText;
+            console.log(json);
         }
     }
-    xhr.send(JSON.stringify(objectToSend));
+    
+    xhr.send(objectToSend);
 }
 
 var file;
