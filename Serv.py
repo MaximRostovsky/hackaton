@@ -1,9 +1,6 @@
 
 # coding: utf-8
 
-# In[19]:
-
-
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -11,25 +8,22 @@ from flask import jsonify
 app = Flask(__name__)
 
 
-# In[20]:
-
-
 @app.route("/")
 def startServer():
     return render_template("Page.html")
 
-# На анализ
+# Разбор сообщения с фронта и передача на анализ
 @app.route("/json", methods = ['POST'])
 def goDeeper():
     content = request.form
     print(content)
-    file = request.files
+    file = request.files['Photo']
     print(file)
-    return jsonify(0)
+    result = analyze(content, file);
+    return jsonify(result)
 
-
-# In[17]:
-
+def analyze():
+    pass
 
 
 
