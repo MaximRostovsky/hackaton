@@ -18,11 +18,14 @@ def goDeeper():
     content = request.form
     print(content)
     file = request.files['Photo']
-    print(file)
-    result = analyze(content, file);
+    pathToSave = 'C:\Hackaton\image1.jpeg'
+    file.save(pathToSave)
+
+    result = analyze(content, pathToSave);
     return jsonify(result)
 
-def analyze():
+# Анализ фото и данных для расчета скоринга
+def analyze(content, filePath):
     pass
 
 
