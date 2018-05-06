@@ -1,12 +1,19 @@
 <!doctype html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{ url_for('static', filename = 'Page.js') }}"></script>
-<script src="Page.js"></script>
+<script src="{{ url_for('static', filename= 'js/bootstrap.min.js') }}"></script>
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" rel="stylesheet">
+
 <title>SCORING VERDICT</title>
 <body>
-    <label for="FIO">Client's FIO: </label><input id="FIO" type="text" required="required"><br>
-    <label for="Phone">Client's phone number: </label><input id="Phone" type="number" required="required"><br>
-    <input id="Photo" type="file" style="display:none">
+    <h1>SCORING VERDICT' SERVICE</h1>
+    <h2>Input client's data in fields and upload the photo. Then press "Submit for anasysis" to get the credit scoring data."</h2>
+    <label for="FIO">Client's FIO: </label><input id="FIO" type="text" required><br>
+    <label for="Phone">Client's phone number: </label><input id="Phone" type="number" required><br>
+    <label for="Birthday">Client's birthday (Month|Day|Year): '</label><input id="Birthday" type="date" required><br>
+    <input id="Photo" type="file" style="display:none" formenctype="multipart/form-data" accept="image/*">
     <input id="PhotoUploadButton" type="button" value="Upload File" onclick="document.getElementById('Photo').click()">
     <output id="FileChosen"></output><br>
     <input id="Upload" type="button" value="Submit for analysis" onclick="sendToServ()" />
-    </body>
+</body>

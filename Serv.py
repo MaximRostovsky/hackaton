@@ -21,8 +21,11 @@ def startServer():
 # На анализ
 @app.route("/json", methods = ['POST'])
 def goDeeper():
-    print(request.data)
-    return jsonify(request.data);
+    content = request.form
+    print(content)
+    file = request.files
+    print(file)
+    return jsonify(0)
 
 
 # In[17]:

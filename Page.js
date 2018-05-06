@@ -6,24 +6,23 @@ function UploadPhoto() {
 }
 
 function sendToServ() {
-    alert("Sending to server");
-    var objectToSend = {
-        FIO: document.getElementById('FIO').value,
-        Phone: document.getElementById('Phone').value,
-        Photo: file
-    };
+
+    var formData = new FormData();
+    formData.append("FIO", document.getElementById('FIO').value);
+    formData.append("Phone", document.getElementById('Phone').value);
+    formData.append("Birthday", document.getElementById('Birthday').value);
+    formData.append("Photo", file, );
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://127.0.0.1:5000/json", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var json = xhr.responseText;
             console.log(json);
         }
     }
-    
-    xhr.send(objectToSend);
+
+    xhr.send(formData);
 }
 
 var file;
