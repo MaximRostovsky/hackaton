@@ -1,20 +1,69 @@
 <!doctype html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{ url_for('static', filename = 'Page.js') }}"></script>
-<script src="{{ url_for('static', filename= 'js/bootstrap.min.js') }}"></script>
-<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" rel="stylesheet">
+<!---->
+<link href="{{ url_for('static', filename = 'css/bootstrap.css') }}" rel="stylesheet">
 
 <title>SCORING VERDICT</title>
 <body>
-    <h1 style="text-align:center">SCORING VERDICT SERVICE</h1>
-    <h2 style="margin-left: 30px">Input client's data in fields and upload the photo. Then press "Submit for anasysis" to get the credit scoring data.</h2>
-    <label style="margin-left: 30px" for="FIO">Client's FIO: </label><input id="FIO" type="text" required><br>
-    <label style="margin-left: 30px" for="Phone">Client's phone number: </label><input id="Phone" type="number" required><br>
-    <label style="margin-left: 30px" for="Birthday">Client's birthday (Month|Day|Year): '</label><input id="Birthday" type="date" required><br>
-    <input id="Photo" type="file" style="display:none" formenctype="multipart/form-data" accept="image/*">
-    <input style="margin-left: 30px" id="PhotoUploadButton" type="button" value="Upload File" onclick="document.getElementById('Photo').click()">
-    <output style="margin-left: -10px" id="FileChosen"></output>
-    <input style="margin-left: 30px" id="Upload" type="button" value="Submit for analysis" onclick="sendToServ()" /><br>
-    <textarea style="margin-left: 30px; display: none" id="Result"></textarea>
+    <div class="h-50 d-inline-block">
+        <h1 style="text-align:center">SCORING VERDICT SERVICE</h1>
+    </div>
+
+    <div class="col-form-label">
+        <h2 style="text-align:center; font-style:italic">Input client's data in fields and upload the photo. Then press "Submit for anasysis" to get the credit scoring data.</h2>
+    </div>
+
+    <br>
+
+    <div class="form-group row" style="margin-left: 200px" align="left">
+        <label for="FIO" class="col-sm-2 col-form-label">Client's FIO</label>
+        <div class="col-xs-8">
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="FIO">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row" style="margin-left: 200px" align="left">
+        <label for="FIO" class="col-sm-2 col-form-label">Client's City</label>
+        <div class="col-xs-8">
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="City">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row" style="margin-left: 200px" align="left">
+        <label for="FIO" class="col-sm-2 col-form-label">Client's Birthday</label>
+        <div class="col-xs-8">
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="Birthday">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group row" style="margin-left: 215px; display: none">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Upload photo</span>
+            </div>
+            <div class="custom-file">
+                <input type="file" accept="image/*" formenctype="multipart/form-data" class="custom-file-input" id="Photo">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row" style="margin-left: 215px">
+        <input type="button" value="Upload photo" class="btn btn-outline-primary" id="Upload" onclick="document.getElementById('Photo').click()">
+    </div>
+
+    <br>
+
+    <div class="form-group row" style="margin-left: 215px">
+        <input type="button" value="Submit for analysis" class="btn btn-primary btn-lg" id="Upload" onclick="sendToServ()">
+    </div>
+
+
 </body>
