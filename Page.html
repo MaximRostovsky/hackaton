@@ -7,13 +7,14 @@
 
 <title>SCORING VERDICT</title>
 <body>
-    <h1>SCORING VERDICT' SERVICE</h1>
-    <h2>Input client's data in fields and upload the photo. Then press "Submit for anasysis" to get the credit scoring data."</h2>
-    <label for="FIO">Client's FIO: </label><input id="FIO" type="text" required><br>
-    <label for="Phone">Client's phone number: </label><input id="Phone" type="number" required><br>
-    <label for="Birthday">Client's birthday (Month|Day|Year): '</label><input id="Birthday" type="date" required><br>
+    <h1 style="text-align:center">SCORING VERDICT' SERVICE</h1>
+    <h2 style="margin-left: 30px">Input client's data in fields and upload the photo. Then press "Submit for anasysis" to get the credit scoring data."</h2>
+    <label style="margin-left: 30px" for="FIO">Client's FIO: </label><input id="FIO" type="text" required><br>
+    <label style="margin-left: 30px" for="Phone">Client's phone number: </label><input id="Phone" type="number" required><br>
+    <label style="margin-left: 30px" for="Birthday">Client's birthday (Month|Day|Year): '</label><input id="Birthday" type="date" required><br>
     <input id="Photo" type="file" style="display:none" formenctype="multipart/form-data" accept="image/*">
-    <input id="PhotoUploadButton" type="button" value="Upload File" onclick="document.getElementById('Photo').click()">
-    <output id="FileChosen"></output><br>
-    <input id="Upload" type="button" value="Submit for analysis" onclick="sendToServ()" />
+    <input style="margin-left: 30px" id="PhotoUploadButton" type="button" value="Upload File" onclick="document.getElementById('Photo').click()">
+    <output style="margin-left: -10px" id="FileChosen"></output>
+    <input style="margin-left: 30px" id="Upload" type="button" value="Submit for analysis" onclick="sendToServ()" /><br>
+    <textarea style="margin-left: 30px; display: none" id="Result"></textarea>
 </body>

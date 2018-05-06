@@ -7,10 +7,22 @@ function UploadPhoto() {
 
 function sendToServ() {
 
+    document.getElementById('Result').value = null;
+
+    var FIO = document.getElementById('FIO').value;
+    var Phone = document.getElementById('Phone').value;
+    var Birthday = document.getElementById('Birthday').value;
+
+
+    if (FIO == '' || Phone == '' || Birthday == '') {
+        alert("Some of the fields are empty! Please fill them up");
+        return;
+    }
+
     var formData = new FormData();
-    formData.append("FIO", document.getElementById('FIO').value);
-    formData.append("Phone", document.getElementById('Phone').value);
-    formData.append("Birthday", document.getElementById('Birthday').value);
+    formData.append("FIO", FIO);
+    formData.append("Phone", Phone);
+    formData.append("Birthday", Birthday);
     formData.append("Photo", file, );
 
     var xhr = new XMLHttpRequest();
@@ -18,7 +30,8 @@ function sendToServ() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var json = xhr.responseText;
-            console.log(json);
+            document.getElementById('Result').value = json;
+            document.getElementById('Result').style.display = "block";
         }
     }
 
